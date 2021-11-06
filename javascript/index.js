@@ -43,7 +43,7 @@ function Alumno(nombre, edad, sexo, objetivo, tiempo){
     this.objetivo = objetivo;
     this.tiempo = tiempo;
     this.trainer = function(){
-        if(tiempo <= 3){
+        if(tiempo <= 5){
             alert("Te recomendamos como tutor al grupo de nivel 1")
         }else if(tiempo >= 6 && tiempo <= 12){
             alert("Te recomendamos como tutor al grupo de nivel 2")
