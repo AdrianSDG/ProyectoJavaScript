@@ -5,3 +5,15 @@
     border: 7px solid chocolate;
     border-radius: 25px;
 }
+
+h3{
+    font-family: 'Arbutus', cursive;
+}
+
+p,b{
+    font-family: 'Caesar Dressing', cursive;
+}
+
+body{
+    background-image:linear-gradient(to right,#F1F2B5,#135058);
+}
