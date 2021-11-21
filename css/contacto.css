@@ -1,0 +1,41 @@
+#contacto{
+    text-align: center;
+    font-family: 'Audiowide', cursive;
+    background-color:wheat;
+    opacity: 0.9;
+}
+
+#enviar{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+    background-color: green;
+    border-radius: 15px;
+}
+#borrar{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+    background-color: red;
+    border-radius: 15px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to top,grey,wheat);
+    font-size: 50px;
+    font-family: 'Caesar Dressing', cursive; 
+    border-radius: 40px;
+    align-items: center;
+    opacity: 0.9;
+}
+
+footer a{
+    color: black;
+}
+
+body{
+    background-image:url("../img/dioses\ balcon.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+}

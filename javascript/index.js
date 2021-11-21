@@ -1,5 +1,5 @@
 console.log("Bienvenido a tu entrenador virtual");
-
+//////////////////////////////////////////////////////ARRAYS
 const arrayCoach = [{coach: "Marcel", tarifa: 2000, estilo:"HIT y pesas", nivel: 3},
 { coach: "Samantha", tarifa: 1200, estilo:"HIT", nivel: 1},
 { coach: "Brandon", tarifa: 1500, estilo:"HIT y pesas", nivel: 1},
@@ -8,34 +8,71 @@ const arrayCoach = [{coach: "Marcel", tarifa: 2000, estilo:"HIT y pesas", nivel:
 { coach: "Max", tarifa: 1900, estilo:"funcional y pesas", nivel: 1},
 { coach: "Michelle", tarifa: 1300, estilo:"pesas", nivel: 1},
 { coach: "Pedro", tarifa: 1300, estilo:"pesas", nivel: 2},
+{ coach: "Gabriel", tarifa: 1600, estilo:"HIT y pesas", nivel: 2},
+{coach: "Santi", tarifa: 2500, estilo:"pesas", nivel: 3}];
+console.table(arrayCoach);
+
+const coachNuno =[{ coach: "Samantha", tarifa: 1200, estilo:"HIT", nivel: 1},
+{ coach: "Brandon", tarifa: 1500, estilo:"HIT y pesas", nivel: 1},
+{ coach: "Max", tarifa: 1900, estilo:"funcional y pesas", nivel: 1},
+{ coach: "Michelle", tarifa: 1300, estilo:"pesas", nivel: 1}];
+
+const coachNdos = [{ coach: "Olivia", tarifa: 1700, estilo:"funcional y pesas", nivel: 2},
+{ coach: "Robert", tarifa: 1600, estilo:"HIT", nivel: 2},
+{ coach: "Pedro", tarifa: 1300, estilo:"pesas", nivel: 2},
 { coach: "Gabriel", tarifa: 1600, estilo:"HIT y pesas", nivel: 2}];
-console.table(arrayCoach);
 
-console.log("Grilla por nivel");
-arrayCoach.sort(function(a, b){return a.nivel - b.nivel});
-//arrayCoach.sort(function(a, b){return b.nivel - a.nivel});
-console.table(arrayCoach);
+const coachNtres = [{coach: "Marcel", tarifa: 2000, estilo:"HIT y pesas", nivel: 3},
+{coach: "Santi", tarifa: 2500, estilo:"pesas", nivel: 3},]
 
-console.log("Grilla por tarifa");
-arrayCoach.sort(function(a,b){return a.tarifa - b.tarifa});
-//alumn.sort(function(a,b){return b.tarifa - a.tarifa});
-console.table(arrayCoach);
 
-console.log("Filtrar por estilo");
-const buscHit = arrayCoach.filter(tutor => tutor.estilo === "HIT");
-console.log(buscHit);
+let botonUno = document.getElementById("nivelUno")
+botonUno.addEventListener ("click", respbotUno)
+function respbotUno(){
+    for (const trainer of coachNuno){
+        let seleccion = document.createElement("div");
+        seleccion.setAttribute("class", "bU");
+seleccion.innerHTML = `<h3> Coach: ${trainer.coach}</h3>
+<p>--Tarifa: ${trainer.tarifa}</p>
+<p>--Estilo: ${trainer.estilo}</p>
+<p>--Nivel: ${trainer.nivel}</p>`;
+document.body.appendChild(seleccion);
+}}
 
-const buschitPe = arrayCoach.filter(tutor => tutor.estilo === "HIT y pesas");
-console.log(buschitPe);
+let botonDos = document.getElementById("nivelDos")
+botonDos.addEventListener("click", respbotDos)
+function respbotDos(){
+    for (const trainer of coachNdos){
+        let seleccion = document.createElement("div");
+        seleccion.setAttribute("class", "bD");
+seleccion.innerHTML = `<h3> Coach: ${trainer.coach}</h3>
+<p>--Tarifa: ${trainer.tarifa}</p>
+<p>--Estilo: ${trainer.estilo}</p>
+<p>--Nivel: ${trainer.nivel}</p>`;
+document.body.appendChild(seleccion);
+}}
 
-const buscFunyp = arrayCoach.filter(tutor => tutor.estilo === "funcional y pesas");
-console.log(buscFunyp);
+let botonTres = document.getElementById("nivelTres")
+botonTres.addEventListener("click", respbotTres)
+function respbotTres(){
+    for (const trainer of coachNtres){
+        let seleccion = document.createElement("div");
+        seleccion.setAttribute("class", "bT");
+seleccion.innerHTML = `<h3> Coach: ${trainer.coach}</h3>
+<p>--Tarifa: ${trainer.tarifa}</p>
+<p>--Estilo: ${trainer.estilo}</p>
+<p>--Nivel: ${trainer.nivel}</p>`;
+document.body.appendChild(seleccion);
+}}
 
-const buscPes = arrayCoach.filter(tutor => tutor.estilo === "pesas");
-console.log(buscPes);
-
-////////////////////////////////////////////////////////////////////////////////////
-
+//////////////////////////////////////////////////////INGRESO DE ALUMNO
+let botonAlum = document.getElementById("ingAlum")
+botonAlum.addEventListener("click",ingDatos)
+function ingDatos(){ nombre = prompt("Hola,¿Como te llamas?");
+edad = parseFloat(prompt("Dime tu edad"));
+sexo = prompt(" Dime tu sexo");
+objetivo = prompt("Muy brevemente, ¿Que buscas?");
+tiempo = parseFloat(prompt("¡Cuantos meses deseas entrenar?"));
 function Alumno(nombre, edad, sexo, objetivo, tiempo){
     this.nombre = nombre;
     this.edad = edad;
@@ -53,19 +90,14 @@ function Alumno(nombre, edad, sexo, objetivo, tiempo){
     }
 
 }
-nombre = prompt("Hola,¿Como te llamas?");
-edad = parseFloat(prompt("Dime tu edad"));
-sexo = prompt(" Dime tu sexo");
-objetivo = prompt("Muy brevemente, ¿Que buscas?");
-tiempo = parseFloat(prompt("¡Cuantos meses deseas entrenar?"));
-  
-
 const alumno1 = new Alumno(nombre, edad, sexo, objetivo, tiempo,);
 
 alumno1.trainer();
 console.log(alumno1);
+const alumJson = JSON.stringify(alumno1);
+localStorage.setItem("alumno1", alumJson);}
 
-//Funciones para entrenar
+//////////////////////////////////////////////////////FUNCIONES ENTRENAMIENTO
 let kilaje = 0;
 function entrenador(){
     let dato1 = parseFloat (prompt("Indica el kilaje total que usas por repeticion para pecho"));
@@ -77,6 +109,7 @@ function entrenador(){
     if (kilaje < 100){
         alert("Manten una semana y aumenta el peso de " + kilaje + " kg unos 50kg")
     }else if(kilaje >= 100 && kilaje <= 200){
+        let seleccion = document.createElement("div");
         alert("Los "+ kilaje + " kg estan bien, manten el peso pero aumenta las repeticiones en la semana")
     }else if( kilaje > 200){
         alert("Tu peso de "+ kilaje +" kg ya es suficiente por ahora, coordinemos para nuevos ejercicios")
@@ -99,62 +132,46 @@ function hidratacion(){
 function recuperacion(){
     let diasPesas = parseFloat(prompt("¿Cuantos dias ejercitas con pesas"));
     let diasCardio = parseFloat(prompt("¿Y de cardio?"));
-    if(diasPesas > diasCardio){
+    if(diasPesas < diasCardio){
         alert("Te recomiendo descansar dos dias en principio");
-    }else if(diasPesas < diasCardio){
+    }else if(diasPesas > diasCardio){
         alert("Con tres dias de descanso el cuerpo respondera bien");
     }else if(diasPesas == diasCardio){
         alert("En ese equilibrio te recomiendo un descanso activo");
     }
 }
-entrenador();
-hidratacion();
-recuperacion();
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//DOM
-const hit = [{ coach: "Samantha", tarifa: 1200, estilo:"HIT", nivel: 1},
-    { coach: "Robert", tarifa: 1600, estilo:"HIT", nivel: 2},];
-    const hitYpes =[{coach: "Marcel", tarifa: 2000, estilo:"HIT y pesas", nivel: 3},
-    { coach: "Brandon", tarifa: 1500, estilo:"HIT y pesas", nivel: 1},
-    { coach: "Gabriel", tarifa: 1600, estilo:"HIT y pesas", nivel: 2}];
-    const pesas = [{ coach: "Michelle", tarifa: 1300, estilo:"pesas", nivel: 1},
-    { coach: "Pedro", tarifa: 1300, estilo:"pesas", nivel: 2}];
-    const funcPesa = [{ coach: "Olivia", tarifa: 1700, estilo:"funcional y pesas", nivel: 2},
-    { coach: "Max", tarifa: 1900, estilo:"funcional y pesas", nivel: 1},];
+let botonEntren = document.getElementById("entrenador")
+botonEntren.addEventListener("click", entrenador)
 
-    
-    let seleccion = prompt("Elije un estilo dentro de HIT, HIT y pesas, funcional y pesas o unicamente pesas");
-    if(seleccion === "HIT"){
-        for (const trainer of hit){
-            let seleccion = document.createElement("div");
-    seleccion.innerHTML = `<h3> Coach: ${trainer.coach}</h3>
-    <p> Tarifa: ${trainer.tarifa}</p>
-    <b> Estilo ${trainer.estilo}</b>
-    <b> Nivel ${trainer.nivel}</b>`;
-    document.body.appendChild(seleccion);
-    }}else if(seleccion === "HIT y pesas"){
-        for (const trainer of hitYpes){
-            let seleccion = document.createElement("div");
-    seleccion.innerHTML = `<h3> Coach: ${trainer.coach}</h3>
-    <p> Tarifa: ${trainer.tarifa}</p>
-    <b> Estilo ${trainer.estilo}</b>
-    <b> Nivel ${trainer.nivel}</b>`;
-    document.body.appendChild(seleccion);
-    }}else if(seleccion === "pesas"){
-        for (const trainer of pesas){
-            let seleccion = document.createElement("div");
-    seleccion.innerHTML = `<h3> Coach: ${trainer.coach}</h3>
-    <p> Tarifa: ${trainer.tarifa}</p>
-    <b> Estilo ${trainer.estilo}</b>
-    <b> Nivel ${trainer.nivel}</b>`;
-    document.body.appendChild(seleccion);
-    }}else if(seleccion === "funcional y pesas"){
-        for (const trainer of funcPesa){
-            let seleccion = document.createElement("div");
-    seleccion.innerHTML = `<h3> Coach: ${trainer.coach}</h3>
-    <p> Tarifa: ${trainer.tarifa}</p>
-    <b> Estilo ${trainer.estilo}</b>
-    <b> Nivel ${trainer.nivel}</b>`;
-    document.body.appendChild(seleccion);
-    }}else{alert("Ingresa un estilo valido")}
+let botonHidra = document.getElementById("hidra")
+botonHidra.addEventListener("click", hidratacion)
+
+let botonRecup = document.getElementById("recup")
+botonRecup.addEventListener("click", recuperacion)
+//////////////////////////////////////////////////////IMAGENES
+
+let caraG = document.getElementById("gokumirando")
+caraG.addEventListener("mouseenter", gokuApr);
+caraG.addEventListener("mouseout", gokuMir);
+
+function gokuApr(){
+    caraG.setAttribute("src","./img/goku dedo.jpg");
+}
+function gokuMir(){
+    caraG.setAttribute("src","./img/goku mirando.jpg");
+}
+
+//////////////////////////////////////////////////////FORMULARIO(no funciona correctamente)
+/*let miForm = document .getElementById ("contacto");
+miForm.addEventListener ("submit", validarForm);
+function validarForm(evt){
+evt.preventDefault ();
+let formulario = evt.target;
+    let select = document.createElement("div");
+    select.innerHTML = `<p> ${formulario.nombre.value}</p>;
+    <p> ${formulario.apellido.value}</p>;
+    <p> ${formulario.email.value}</p>;
+    <p> ${formulario.grupo.value}</p>`;
+    document.body.appendChild(select);}*/
+

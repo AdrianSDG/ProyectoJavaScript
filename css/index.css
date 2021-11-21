@@ -2,18 +2,85 @@
     background-color: burlywood;
     font-family: 'Fascinate Inline', cursive;
     text-align: center;
-    border: 7px solid chocolate;
+    border: 7px solid rgb(118, 152, 156);
     border-radius: 25px;
 }
 
 h3{
     font-family: 'Arbutus', cursive;
+    font-size: 30px;
+    color:rgb(16, 18, 24);
+}
+
+h2{
+    font-family: 'Caesar Dressing', cursive;
+    font-size: 30px;
 }
 
 p,b{
     font-family: 'Caesar Dressing', cursive;
+    font-size: 25px;
 }
 
 body{
-    background-image:linear-gradient(to right,#F1F2B5,#135058);
+    background-image: url("../img/Olimpo.jpg");
+    background-size: 100%;
+}
+
+.btnfunc{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.btnAlumn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btnEntr{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#nivelUno,#nivelDos,#nivelTres{
+    margin: 20px;
+    font-family: 'Caesar Dressing', cursive; 
+    font-size: 25px;
+}
+
+.bU,.bD, .bT{
+    display: flex;
+    flex-direction: row;
+}
+
+#ingAlum{
+    margin: 20px;
+    font-family: 'Caesar Dressing', cursive; 
+    font-size: 25px;
+}
+
+#entrenador,#hidra,#recup{
+    margin: 20px;
+    font-family: 'Caesar Dressing', cursive; 
+    font-size: 25px;
+}
+
+#fooInd{
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to top,rgb(49, 193, 230),rgb(36, 150, 170));
+    height: 130px;
+    font-size: 50px;
+    font-family: 'Caesar Dressing', cursive; 
+    border-radius: 40px;
+    align-items: center;
+    border: 7px solid rgb(73, 48, 30);
+}
+
+#fooInd a{
+    color: black;
 }
