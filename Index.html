@@ -4,47 +4,332 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arbutus&family=Caesar+Dressing&display=swap" rel="stylesheet">
     <title>Entrenador Virtual</title>
+<style>
+    
+    #divtitulo{
+    background-color: burlywood;
+    font-family: 'Fascinate Inline', cursive;
+    text-align: center;
+    border: 7px solid rgb(107, 84, 41);
+    border-radius: 25px;
+    }
+
+    h1{
+        display: flex;
+        justify-content: center;
+        font-family: 'Cinzel', serif;
+        font-size: 30px;
+    }
+    
+    h3{
+        display: flex;
+        justify-content: center;
+        font-family: 'Caesar Dressing', cursive;
+        font-size: 30px;
+    }
+
+    .bU{
+        text-align: center;
+        font-family: 'Caesar Dressing', cursive;
+        font-size: 20px;
+    }
+
+    .btnFunc{
+        display: flex;
+        justify-content: center;
+        font-family: 'Caesar Dressing', cursive;
+        font-size: 25px;
+    }
+
+    #nivelUno,#nivelDos,#nivelTres{
+    margin: 20px;
+    font-family: 'Caesar Dressing', cursive; 
+    font-size: 25px;
+    }
+
+    .alumnoIng{
+        display: flex;
+        justify-content: center;
+        font-family: 'Caesar Dressing', cursive;
+        font-size: 25px;
+    }
+
+    #infoDisc{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+    }
+
+    #divAnimH, #divAnimF, #divAnimP{
+        background-color: goldenrod;
+        border: 2px solid rgb(68, 39, 6);
+        margin: 10px;
+        height: 300px;
+        width: 200px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Caesar Dressing', cursive;
+    }
+
+    #pAnimHT, #pAnimFT, #pAnimPT{
+        font-size: 23px;
+    }
+
+    #pAnimHtext, #pAnimFtext, #pAnimPtext{
+        color: goldenrod;
+    }
+
+    body{
+    background-image:url("./img/Journey\ fondo.jpg");
+    background-size: 100%;
+
+}
+
+footer{
+    background-color: cornsilk;
+    height: 50px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 70px;
+    border-top-left-radius: 70px;
+    font-family: 'Fascinate Inline', cursive;
+    font-size: 30px; 
+    background-image: linear-gradient(to bottom,#6d411e,#ffcc6c);
+    border: 1px solid rgb(68, 39, 6);  
+}
+</style>
 </head>
 <body>
     
 <div id="divtitulo">
     <h1>Bienvenido a OLIMPO<br>Tu Entrenador Virtual</h1>
 </div>
-<h2>
-    Conóce a los Titanes....
-</h2>
-<section class="btnfunc">
-<div>
-    <button id="nivelUno">Nivel Uno</button>
-</div>
-<div>
-    <button id="nivelDos">Nivel Dos</button>
-</div>
-<div>
-    <button id="nivelTres">Nivel Tres</button>
-</div>
+<section class="alumnoIng">
+    <div>
+        <form>
+            <p>Ingrasa tu Nombre</p>
+                <input id="nombreAl" type="text">
+            <p>Indica tu genero (Masculino/Femenino/Otro)</p>
+                <input id="generoAl" type="text">
+            <p>Luego tu Edad</p>
+                <input id="edadAl" type="number">
+            <p>Cuentanos que buscas</p>
+                <textarea id="objetivoAl" cols="30" rows="10"></textarea>
+            <p>¿Cuantos meses deseas entrenar?</p>
+                <input id="mesesAl" type="number">
+            <button id="ingAlum">Ingresa Entre Ellos</button>
+            <input id="borrar" type="reset" value="Volver">
+        </form>
+    </div>
 </section>
-<section class="btnAlumn">
-    <button id="ingAlum">Ingresa Entre Ellos</button>
+<section>
+    <h3>Los 3 bloques</h3>
 </section>
-<h2>
-    Crece con nuestros consejos....
-</h2>
-<section class="btnEntr">
-    <button id="entrenador">entrenador</button>
-    <button id="hidra">hidratacion</button>
-    <button id="recup">recuperacion</button>
+<section id="infoDisc">
+    <div id="divAnimH">
+        <p id="pAnimHT">H <br> I <br> T</p>
+        <p id="pAnimHtext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, sequi quisquam inventore labore ad molestiae
+             aperiam impedit? 
+            Alias sit eos culpa nam dolore perspiciatis, cumque deserunt odit commodi nemo? Modi.</p>
+    </div>
+    <div id="divAnimF">
+        <p id="pAnimFT">F <br> U <br> N <br> C <br> I <br> O <br> N <br> A <br> L</p>
+        <p id="pAnimFtext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, sequi quisquam inventore labore ad molestiae
+            aperiam impedit? 
+           Alias sit eos culpa nam dolore perspiciatis, cumque deserunt odit commodi nemo? Modi.</p>
+    </div>
+    <div id="divAnimP">
+        <p id="pAnimPT">P <br> E <br> S <br> A <br> S</p>
+        <p id="pAnimPtext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, sequi quisquam inventore labore ad molestiae
+            aperiam impedit? 
+           Alias sit eos culpa nam dolore perspiciatis, cumque deserunt odit commodi nemo? Modi.</p>
+    </div>
 </section>
-<footer id="fooInd">
-    <a href="contacto.html" style="text-decoration: none;">Contactanos en persona</a>
-    <img id="gokumirando" src="./img/goku mirando.jpg" alt="Goku" height="130px">
+<section class="btnFunc">
+    <div>
+        <p>Ingresa el nivel a conocer</p>
+        <input id="inputNivel" type="text">
+        <button id="nivelTutor">Conocelos</button>
+    </div>
+    <div id="insertbtn"></div>
+    </section>
+<footer>
+    <p><a href="contacto.html" style="text-decoration: none;">Contactanos en persona</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="entrenamiento.html" style="text-decoration: none;">Zona de Entrenamiento</a></p>
 </footer>
-<script src="./javascript/index.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    console.log("Entrenador Virtual(Entrega Final)");
+//////////////////////////////////////////////////////INGRESO DE ALUMNO
+let inpNombre = document.getElementById("nombreAl");
+let inpEdad = document.getElementById("edadAl");
+let  inpObj = document.getElementById("objetivoAl");
+let inpMeses = document.getElementById("mesesAl");
+let inpGener = document.getElementById("generoAl");
+
+let botonAlum = document.getElementById("ingAlum")
+botonAlum.addEventListener("click",ingDatos)
+function ingDatos(){nombre = inpNombre.value;
+edad = inpEdad.value;
+sexo = inpGener.value;
+objetivo = inpObj.value;
+tiempo = inpMeses.value;
+function Alumno(nombre, edad, sexo, objetivo, tiempo){
+    this.nombre = nombre;
+    this.edad = edad;
+    this.sexo = sexo;
+    this.objetivo = objetivo;
+    this.tiempo = tiempo;
+    this.trainer = function(){
+        if(tiempo <= 5 && tiempo != 0){
+            alert(`Te recomendamos como tutor al grupo de nivel 1`);
+        }else if(tiempo >= 6 && tiempo <= 12){
+            alert(`Te recomendamos como tutor al grupo de nivel 2`);
+        }else if(tiempo > 12){
+            alert(`Te recomendamos como tutor al grupo de nivel 2 o 3`);
+        }
+    }
+
+}
+const alumno1 = new Alumno(nombre, edad,sexo, objetivo, tiempo);
+
+alumno1.trainer();
+console.log(alumno1);
+const alumJson = JSON.stringify(alumno1);
+localStorage.setItem("alumno1", alumJson);}
+const alumnoUno = JSON.parse(localStorage.getItem("alumno1"));
+console.log(alumnoUno);
+
+//////////////////////////////////////////////////////ANIMACIONES
+$('#divAnimH').mouseenter(function(){
+    $('#divAnimH').animate({
+        opacity: "0.7"})
+        $('#divAnimH').css({
+            "background-color":"yellow", "border": "5px solid black"})
+            $('#pAnimHT').animate({
+                opacity: "0"})
+                $("#pAnimHtext").css({
+                    "color": "red"})
+                    $("#pAnimHtext").animate({
+                        opacity: "1"
+                    })
+})
+
+$('#divAnimH').mouseout(function(){
+    $('#divAnimH').animate({
+        opacity: "1"})
+        $('#divAnimH').css({
+            "background-color":"goldenrod", "border": "2px solid black"})
+            $('#pAnimHT').animate({
+                opacity: "1"})
+                $("#pAnimHtext").css({
+                    "color" :"goldenrod"})
+                    $("#pAnimHtext").animate({
+                        opacity: "0"
+                })
+})
+////////////////////////////////
+$('#divAnimF').mouseenter(function(){
+    $('#divAnimF').animate({
+        opacity: "0.7"})
+        $('#divAnimF').css({
+            "background-color":"yellow", "border": "5px solid black"})
+            $('#pAnimFT').animate({
+                opacity: "0"})
+                $("#pAnimFtext").css({
+                    "color": "red"})
+                    $("#pAnimFtext").animate({
+                        opacity: "1"
+                    })
+})
+
+$('#divAnimF').mouseout(function(){
+    $('#divAnimF').animate({
+        opacity: "1"})
+        $('#divAnimF').css({
+            "background-color":"goldenrod", "border": "2px solid black"})
+            $('#pAnimFT').animate({
+                opacity: "1"})
+                $("#pAnimFtext").css({
+                    "color" :"goldenrod"})
+                    $("#pAnimFtext").animate({
+                        opacity: "0"
+                })
+})
+////////////////////////////////
+$('#divAnimP').mouseenter(function(){
+    $('#divAnimP').animate({
+        opacity: "0.7"})
+        $('#divAnimP').css({
+            "background-color":"yellow", "border": "5px solid black"})
+            $('#pAnimPT').animate({
+                opacity: "0"})
+                $("#pAnimPtext").css({
+                    "color": "red"})
+                    $("#pAnimPtext").animate({
+                        opacity: "1"
+                    })
+})
+
+$('#divAnimP').mouseout(function(){
+    $('#divAnimP').animate({
+        opacity: "1"})
+        $('#divAnimP').css({
+            "background-color":"goldenrod", "border": "2px solid black"})
+            $('#pAnimPT').animate({
+                opacity: "1"})
+                $("#pAnimPtext").css({
+                    "color" :"goldenrod"})
+                    $("#pAnimPtext").animate({
+                        opacity: "0"
+                })
+})
+
+//////////////////////////////////////////////////////NIVEL TUTOR--ARRAYS
+const arrayCoach = [{coach: "Marcel", tarifa: 2000, estilo:"HIT y pesas", nivel: 3},
+{ coach: "Samantha", tarifa: 1200, estilo:"HIT", nivel: 1},
+{ coach: "Brandon", tarifa: 1500, estilo:"HIT y pesas", nivel: 1},
+{ coach: "Olivia", tarifa: 1700, estilo:"funcional y pesas", nivel: 2},
+{ coach: "Robert", tarifa: 1600, estilo:"HIT", nivel: 2},
+{ coach: "Max", tarifa: 1900, estilo:"funcional y pesas", nivel: 1},
+{ coach: "Michelle", tarifa: 1300, estilo:"pesas", nivel: 1},
+{ coach: "Pedro", tarifa: 1300, estilo:"pesas", nivel: 2},
+{ coach: "Gabriel", tarifa: 1600, estilo:"HIT y pesas", nivel: 2},
+{coach: "Santi", tarifa: 2500, estilo:"pesas", nivel: 3}];
+console.table(arrayCoach);
+
+let resultNivel = document.getElementById("nivelTutor");
+resultNivel.addEventListener("click", respbotNivel);
+
+function respbotNivel () {
+    let valor = document.getElementById("inputNivel").value;
+
+    const tutorPorNivel = arrayCoach.filter((tutor) => tutor.nivel === +valor);
+
+    for(const trainer of tutorPorNivel) {
+        let seleccion = document.createElement("div");
+        seleccion.setAttribute("class", "bU");
+        seleccion.innerHTML = `<h3> Coach: ${trainer.coach}</h3>
+            <p>--Tarifa: ${trainer.tarifa}</p>
+            <p>--Estilo: ${trainer.estilo}</p>
+            <p>--Nivel: ${trainer.nivel}</p>`;
+        document.body.appendChild(seleccion);
+            }
+    }
+</script>
 </body>
-</html>
+</html>    

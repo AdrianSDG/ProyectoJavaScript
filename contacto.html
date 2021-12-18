@@ -4,15 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/contacto.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arbutus&family=Caesar+Dressing&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap" rel="stylesheet">
     <title>Contactanos</title>
+<style>
+
+    #divContact{
+        display: flex;
+        justify-content: center;
+        font-family: 'Audiowide', cursive;
+        background-color:wheat;
+        opacity: 0.8;
+        border-radius: 700px;
+    }
+
+    #enviar{
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 25px;
+        background-color: green;
+        border-radius: 15px;
+    }
+    
+    .validacion{
+        font-family: 'Audiowide', cursive;
+        background-color:rgb(146, 171, 216);
+        opacity: 0.8;
+    }
+
+    body{
+    background-image:url("./img/Olimpo.jpg");
+    background-size: 100%;
+
+    }
+
+    footer{
+    background-color: cornsilk;
+    height: 50px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 70px;
+    border-top-left-radius: 70px;
+    font-family: 'Fascinate Inline', cursive;
+    font-size: 30px;
+    background-image: linear-gradient(to bottom,#87b0b3,#f1d3a5);
+    border: 1px solid rgb(68, 39, 6);   
+    }
+</style>
 </head>
 <body>
-    <form id="contacto" action="">
+    <div id="divContact">
+    <form id="contacto">
         <legend>COMUNICATE CON NOSOTROS</legend>
     <p>
         <label for="nombre" id="nombre" name="nombre">Nombre:</label>
@@ -49,13 +97,68 @@
         <p>
             <input id="enviar" type="submit" value="Enviar Datos">
         </p>
-        <p>
-            <input id="borrar" type="reset" value="Borrar Datos">
-        </p>
-</form>
+    </form>
+    <div id="ultIngresos"></div>
+    </div>
 <footer>
-    <a href="index.html" style="text-decoration: none;">Al Olimpo</a>
+    <a href="index.html" style="text-decoration: none;">Al Olimpo</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="entrenamiento.html" style="text-decoration: none;">Zona de Entrenamiento</a>
 </footer>
-<script src="./javascript/index.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        let miForm = document .getElementById ("contacto");
+miForm.addEventListener ("submit", validarForm);
+function validarForm(evt){
+evt.preventDefault ();
+alert("Por favor corrobora la informacion en la seccion inferior");
+let formulario = evt.target;
+let espacio = document.createElement("div");
+espacio.setAttribute("class","validacion");
+espacio.innerHTML =`<h2>Los datos ingresados son los siguientes:</h2>
+<p>Tu nombre y apellido son ${formulario.nombre.value} ${formulario.apellido.value}</p>
+<p>Tu telefono es ${formulario.telefono.value}</p>
+<p>El email ingresado es ${formulario.email.value} y <br>
+    la disciplina seleccionada fue: ${formulario.grupo.value}</p>
+    <p><a href="contacto.html" style="text-decoration: none;">Volver a ingresar</a></p>`
+document.body.appendChild(espacio);
+}
+
+////////////////////////////////////////////JSON Ajax
+const URLGET = "data/data.json"
+const infoAlum = { nombre : document.getElementById("nombre").value,
+apellido : document.getElementById("apellido").value,
+email : document.getElementById("email").value,
+telefono : document.getElementById("telefono").value,
+grupo : document.getElementById("grupo").value};
+$("#enviar").click(() => {
+$.postJSON(URLGET, infoAlum ,(respuesta, estado) => {
+if(estado === "success"){
+$("body").prepend(`<div>
+Tus datos han sido guardados con exito
+</div>`);
+}
+});
+});
+
+
+const URLJSON = "data/data.json"
+let espacio = document.getElementById("ultIngresos");
+$(espacio).prepend('<button id="btn1">Ultimos Ingresos</button>');
+$("#btn1").click(() => {
+$.getJSON(URLJSON, function (respuesta, estado) {
+if(estado === "success"){
+let misDatos = respuesta;
+for (const dato of misDatos) {
+$(espacio).append(`<div>
+<h3>${dato.nombre} entrenara en
+ ${dato.grupo}</h3>
+</div>`)
+}
+}
+});
+});
+
+    </script>
 </body>
 </html>

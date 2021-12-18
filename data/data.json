@@ -1,0 +1,27 @@
+[
+    {
+        "nombre": "Roberto",
+        "apellido": "Sanchez",
+        "email": "robersan@mail.com",
+        "telefono": "111111",
+        "grupo": "HIT y pesas"
+    },{
+        "nombre": "Maria",
+        "apellido": "Sanchez",
+        "email": "mariasan@mail.com",
+        "telefono": "222222",
+        "grupo": "pesas"
+    },{
+        "nombre": "Esteban",
+        "apellido": "Yai",
+        "email": "esteby@mail.com",
+        "telefono": "33333",
+        "grupo": "HIT y pesas"
+    },{
+        "nombre": "Xiano",
+        "apellido": "Sorel",
+        "email": "sorel@mail.com",
+        "telefono": "4444444",
+        "grupo": "funcional y pesas"
+    }
+]

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arbutus&family=Caesar+Dressing&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap" rel="stylesheet">
+    <title>Zona de Entrenamiento</title>
+    <style>
+        
+        h1{
+            font-family: 'Cinzel', serif;
+            font-size: 30px;
+        }
+        
+        p{
+            font-family: 'Caesar Dressing', cursive; 
+            font-size: 20px;  
+        }
+
+        body{
+            background-image:url("./img/papiro\ viejo\ fondo.jpg");
+            background-size: 100%;
+        }
+
+        footer{
+            background-color: cornsilk;
+            height: 50px;
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            border-top-right-radius: 70px;
+            border-top-left-radius: 70px;
+            font-family: 'Fascinate Inline', cursive;
+            font-size: 30px;
+            background-image: linear-gradient(to bottom,#dbb35b,#f1d3a5);
+            border: 1px solid rgb(68, 39, 6);   
+}
+    </style>
+</head>
+<body>
+    <section id="pesas">
+        <div>
+            <form>
+            <h1>Hablemos de tu Levantamiento</h1>
+            <p>Indica el kilaje total que usas por repeticion para pecho</p>
+                <input id="kilPecho" type="number">
+            <p>A continuación dime el kilaje total que usas en las repeticiones de epalda</p>
+                <input id="kilEspalda" type="number">
+            <p>Ahora indica el kilaje total en piernas</p>
+                <input id="kilPiernas" type="number">    
+            <p>Indica las repeticiones de esas rutinas en la semana</p>
+                <input id="repeSem" type="number">
+            <button id="btnEntrena" type="button">Calcular</button>
+            </form> 
+        </div>
+        <p><a href="entrenamiento.html" style="text-decoration: none;">Reiniciar Calculo</a></p>
+    </section>
+    <hr>
+    <section id="hidrat">
+        <div>
+            <form>
+            <h1>Hablemos de tu Hidratacion</h1>
+            <p>¿Cuanta agua consumes, en litros,  mientras entrenas?</p>
+                <input id="cantAgua" type="number">
+            <p>¿Cuantas veces repites esa cantidad en la semana?</p>
+                <input id="aguaSemana" type="number">
+            <button id="btnHidratacion" type="button">Calcular</button>        
+            </form>
+        </div>
+        <p><a href="entrenamiento.html" style="text-decoration: none;">Reiniciar Calculo</a></p>
+    </section>
+    <hr>
+    <section id="descans">
+        <div>
+            <form>
+            <h1>Hablemos de tu Recuperacion</h1>
+            <p>¿Cuantos dias ejercitas con pesas?</p>
+                <input id="diPesas" type="number">
+            <p>¿Y de cardio?</p>
+                <input id="diCardio" type="number">
+            <button id="btnRecup" type="button">Calcular</button>        
+            </form>
+        </div>
+        <p><a href="entrenamiento.html" style="text-decoration: none;">Reiniciar Calculo</a></p>
+    </section>
+    <footer>
+        <a href="contacto.html" style="text-decoration: none;">Contactanos en persona</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="index.html" style="text-decoration: none;">Home</a>
+    </footer>
+    <script>
+        let kilaje = 0;
+let entrena = document.getElementById("btnEntrena")
+entrena.addEventListener("click",entrenador)  
+function entrenador(){
+     let dato1 = parseInt(document.getElementById("kilPecho").value);
+     let dato2 = parseInt(document.getElementById("kilEspalda").value);
+     let dato3 = parseInt(document.getElementById("kilPiernas").value); 
+     let dato4 = document.getElementById("repeSem").value;
+    kilaje = (dato1 + dato2 + dato3) * dato4;
+    let resultPesas = document.getElementById("pesas");
+    let p = document.createElement("p");
+    if (kilaje < 100){
+        let texto = `Manten una semana y aumenta el peso de ${kilaje} kg unos 50kg`;
+        p.innerHTML = texto
+        resultPesas.appendChild(p);
+    }else if(kilaje >= 100 && kilaje <= 200){
+        let texto = `Los ${kilaje} kg estan bien, manten el peso pero aumenta las repeticiones en la semana`;
+        p.innerHTML = texto
+        resultPesas.appendChild(p);
+    }else if( kilaje > 200){ 
+        let texto = `Tu peso de ${kilaje} kg ya es suficiente por ahora, coordinemos para nuevos ejercicios`;
+        p.innerHTML = texto
+        resultPesas.appendChild(p);
+    } 
+}
+    
+let hidr = document.getElementById("btnHidratacion")
+hidr.addEventListener("click", hidratacion)
+let consumir = 0;
+function hidratacion(){
+    let liquido = document.getElementById("cantAgua").value;
+    let frecLiq = document.getElementById("aguaSemana").value;
+    consumir = liquido * frecLiq;
+    let resultHidra = document.getElementById("hidrat");
+    let p = document.createElement("p");
+    if(consumir < 10){
+        let texto = `Los ${consumir} Litros que ingieres son escasos, trata de llevarlos a 10 (2 por dia)`;
+        p.innerHTML = texto
+        resultHidra.appendChild(p);
+    }else if(consumir == 10){
+        let texto = `Tu consumo de ${consumir} Litros es bueno, mantenlo`;
+        p.innerHTML = texto
+        resultHidra.appendChild(p);
+    }else if(consumir > 10){
+        let texto =`El consumo de ${consumir} Litros en la semana no es malo en si, pero llevandolo a un promedio de 2L por dia ya esta bien`;
+        p.innerHTML = texto
+        resultHidra.appendChild(p);
+    }
+}
+
+let recup = document.getElementById("btnRecup")
+recup.addEventListener("click", recuperacion)
+function recuperacion(){
+    let diasPesas = document.getElementById("diPesas").value;;
+    let diasCardio = document.getElementById("diCardio").value;;
+    let resultDescans = document.getElementById("descans");
+    let p = document.createElement("p");
+    if(diasPesas < diasCardio){
+        let texto = `Te recomiendo descansar dos dias en principio`;
+        p.innerHTML = texto
+        resultDescans.appendChild(p);
+    }else if(diasPesas > diasCardio){
+        let texto = `Con tres dias de descanso el cuerpo respondera bien`;
+        p.innerHTML = texto
+        resultDescans.appendChild(p);
+    }else if(diasPesas == diasCardio){
+        let texto = `En ese equilibrio te recomiendo un descanso activo`;
+        p.innerHTML = texto
+        resultDescans.appendChild(p);
+    }
+}
+    </script>
+</body>
+</html>
