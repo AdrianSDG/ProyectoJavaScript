@@ -156,6 +156,7 @@ function respbotNivel () {
             }
     }
 
+//////////////////////////////////////////////////////ENTRENAMIENTO    
     let kilaje = 0;
     let entrena = document.getElementById("btnEntrena")
     entrena.addEventListener("click",entrenador)  
@@ -227,7 +228,8 @@ function respbotNivel () {
             resultDescans.appendChild(p);
         }
     }
-    
+
+//////////////////////////////////////////////////////FORMULARIO DE CONTACTO    
     let miForm = document .getElementById ("contacto");
     miForm.addEventListener ("submit", validarForm);
     function validarForm(evt){
